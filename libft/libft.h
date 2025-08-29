@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:07:52 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/26 19:28:13 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/27 17:18:46 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 50
 # endif
 
 # ifndef MAX_FD
