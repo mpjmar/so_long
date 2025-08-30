@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 17:38:16 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/29 18:46:25 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/30 19:57:56 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,3 @@ void	init_map(t_point size) // TERMINAR!!
 	size.y = 0;
 }
 
-int	get_width(t_point *size, char **matrix)
-{
-	int	width;
-
-	width = 0;
-	while (matrix[0][width])
-		width++;
-	size->x = width;
-	return (width);
-}
-
-int	get_height(t_point *size, char **matrix)
-{
-	int	height;
-
-	height = 0;
-	while (matrix[height][0])
-		height++;
-	size->y = height;
-	return (height);
-}

@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:45:18 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/29 17:56:39 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/30 20:00:43 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,14 @@ void	ft_error(int error)
 	else if (error == 5)
 		ft_printf("Error: invalid horizontal border\n");
 	else if (error == 6)
-		ft_printf("Error: invalid vertical border");
+		ft_printf("Error: invalid vertical border\n");
 	else if (error == 7)
-		ft_printf("Error: ......\n");
-	exit(EXIT_FAILURE);
+		ft_printf("Error: invalid number of exits\n");
+	else if (error == 8)
+		ft_printf("Error: invalid number of players\n");
+	else if (error == 9)
+		ft_printf("Error: invalid number of collectibles\n");
+	else if (error == 10)
+		ft_printf("Error: invalid map elements");
+	exit(EXIT_FAILURE); 
 }

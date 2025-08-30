@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:07:52 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/27 17:18:46 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/30 18:31:18 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

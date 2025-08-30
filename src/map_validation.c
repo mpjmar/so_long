@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:42 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/29 19:08:09 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/30 20:05:23 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int	map_validation(char *map_name)
 {
-	char	**map;
+	char	**matrix;
 
 	map_ext(map_name);
-	map = fill_map(read_map_file(map_name));
-	is_rectangle(map);
-	check_borders(map);
+	matrix = fill_map(read_map_file(map_name));
+	is_rectangle(matrix);
+	check_borders(matrix);
+	check_chars(matrix);
+	check_elements(matrix);
+	check_path(matrix);
 	return (0);
 }
 
@@ -37,41 +40,17 @@ int	map_ext(char *map_name)
 	return (0);
 }
 
-int	is_rectangle(char **map)
+int	is_rectangle(char **matrix)
 {
 	int	i;
 
 	i = 0;
-	while (map[i + 1])
+	while (matrix[i + 1])
 	{
-		if (ft_strlen(map[i]) == ft_strlen(map[i + 1]))
+		if (ft_strlen(matrix[i]) == ft_strlen(matrix[i + 1]))
 			i++;
 		else
 			ft_error(4);
-	}
-	return (0);
-}
-
-int	check_borders(char **matrix)
-{
-	int	i;
-	int	j;
-	
-	i = 0;
-	j = 0;
-	while (matrix[0][i])
-	{
-		if (matrix[0][i] == '1')
-			i++;
-		else
-			ft_error(5);
-	}
-	while (matrix[j])
-	{
-		if (matrix[j][0] == '1' && matrix[j][i - 1] == '1')
-			j++;
-		else
-			ft_error(6);
 	}
 	return (0);
 }
