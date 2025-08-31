@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 19:17:59 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/30 20:02:20 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/31 18:05:05 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	read_map(char **matrix, char c)
 	int	n;
 
 	i = 0;
+	n = 0;
 	while (matrix[i])
 	{
 		j = 0;
@@ -75,7 +76,7 @@ int	check_elements(char **matrix)
 	return (0);
 }
 
-int	check_chars(char **matrix)
+int	check_valid_chars(char **matrix)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 #    By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 13:12:25 by maria-j2          #+#    #+#              #
-#    Updated: 2025/08/26 19:36:46 by maria-j2         ###   ########.fr        #
+#    Updated: 2025/08/31 19:36:57 by maria-j2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 NAME = libft.a 
 
 # Compiler and compilation flags
-CC = gcc -c
-CFLAGS = -Wall -Werror -Wextra
+CC = cc -c
+CFLAGS = -Wall -Werror -Wextra -g
 
 # Create library and delete files
 AR = ar rcs 
@@ -34,14 +34,15 @@ ft_putunbr_pf.c get_next_line_utils.c get_next_line.c
 BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
 ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-OBJS = $(SRC:.c=.o)
-BONUS_OBJS = $(BONUS:.c=.o)
+OBJ_DIR = obj
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+BONUS_OBJS = $(addprefix $(OBJ_DIR)/, $(BONUS:.c=.o))
 
 # Header file
 INCLUDE = libft.h
 
 # Indicates that everything to the right are commands and not files
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re bonus
 
 # Default rule that compiles everything
 # target : dependencies
@@ -50,18 +51,22 @@ all: $(NAME)
 
 # Rule to create the library
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	$(AR) $@ $^
 
 bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+	$(AR) $@ $^
+
+# Rule to create obj directory
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 # Compile .c files to .o files
-%.o: %.c $(INCLUDE)
+$(OBJ_DIR)/%.o: %.c $(INCLUDE) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 # Rule to delete all created object files
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJ_DIR)/*.o
 
 # Delete all .o and .a files
 fclean: clean

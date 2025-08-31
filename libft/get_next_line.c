@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:07:40 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/26 19:26:31 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/31 18:54:26 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	*build_line(char *storage)
 	size = read_until_new_line(storage);
 	if (size == 0)
 		return (NULL);
-	new_line = ft_calloc((size + 1), sizeof(char));
+	new_line = ft_calloc_gnl((size + 1), sizeof(char));
 	if (!new_line)
 		return (NULL);
 	while (i < size)

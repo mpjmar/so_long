@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:45:18 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/30 20:00:43 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/31 18:43:48 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 
 int	main(int argc, char **argv)
 {
+	char	**map;
+
+	map = NULL;
 	if (argc != 2)
 		ft_error(0);
+	if (!map_validation(argv[1]))
+		map = fill_map(read_map_file(argv[1]));
+	print_matrix(map);
 
 	return (0);
 }
@@ -23,7 +29,7 @@ int	main(int argc, char **argv)
 void	ft_error(int error)
 {
 	if (error == 0)
-		ft_printf("Error: a map file must be provided as an argument");
+		ft_printf("Error: a proper map file must be provided as an argument");
 	else if (error == 1)
 		ft_printf("Error: map extension should be .ber\n");
 	else if (error == 2)

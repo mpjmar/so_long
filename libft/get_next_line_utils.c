@@ -6,13 +6,13 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:35:11 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/26 19:25:36 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/31 18:54:12 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc_gnl(size_t nmemb, size_t size)
 {
 	char			*s;
 	unsigned long	i;
@@ -64,18 +64,6 @@ char	*ft_strjoin_gnl(char *storage, char *buffer)
 	if (storage)
 		free(storage);
 	return (new_storage);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
-
-	count = 0;
-	if (!s)
-		return (0);
-	while (*s++)
-		count++;
-	return (count);
 }
 
 char	*ft_substr_gnl(char *storage, ssize_t line_size, size_t backup_size)

@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:50 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/30 19:58:11 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/08/31 18:49:51 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	**dup_map(char **matrix)
 	char	**map_copy;
 	int		i;
 
+	i = 0;
 	while (matrix[i])
 		i++;
 	map_copy = (char **)malloc((i + 1) * sizeof(char *)); // LIBERAR DESPUES!!
