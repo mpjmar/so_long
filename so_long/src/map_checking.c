@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 19:17:59 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/02 19:02:46 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:36:03 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,18 @@ int	check_valid_chars(char *map_str)
 	}
 	return (0);
 }
+
+int	check_empty_line(char *map_str)
+{
+	int	i;
+
+	i = 0;
+	while (map_str[i] && map_str[i + 1])
+	{
+		if (map_str[i] == '\n' && map_str[i + 1] == '\n')
+			ft_error(5);
+		i++;
+	}
+	return (0);
+}
+

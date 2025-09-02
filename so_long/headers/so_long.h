@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/02 19:03:24 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:18:11 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		check_borders(char **matrix);
 int		read_map(char **matrix, char c);
 int		count_elements(char **matrix);
 int		check_valid_chars(char *map_str);
+int		check_empty_line(char *map_str);
 
 // map_validation
 int		map_validation(char *map_name);

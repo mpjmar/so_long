@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:42 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/02 19:07:33 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:45:34 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ int	map_validation(char *map_name)
 
 	matrix = NULL;
 	map_ext(map_name);
-	if (!check_valid_chars(read_map_file(map_name)))
-		matrix = fill_map(read_map_file(map_name));
+	check_valid_chars(read_map_file(map_name));
+	check_empty_line(read_map_file(map_name));
+	if (ft_strlen(read_map_file(map_name)) == 0)
+		ft_error(5);
+	matrix = fill_map(read_map_file(map_name));
 	print_matrix(matrix);
-	if (!matrix || !matrix[0] || !matrix[0][0])
-		ft_error(3);
 	matrix_dup = dup_map(matrix);
 	is_rectangle(matrix);
 	check_borders(matrix);

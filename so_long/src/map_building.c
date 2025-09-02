@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 17:38:16 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/02 18:56:33 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:35:40 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ char	*read_map_file(char *map_name)
 	if (fd == -1)
 		ft_error(2);
 	line = get_next_line(fd);
-	while (line != NULL)
+	if (ft_strlen(line) > 0)
 	{
-		tmp = map_str;
-		map_str = ft_strjoin(map_str, line);
-		free(tmp);
-		free(line);
-		line = get_next_line(fd);
+		while (line != NULL)
+		{
+			tmp = map_str;
+			map_str = ft_strjoin(map_str, line);
+			free(tmp);
+			free(line);
+			line = get_next_line(fd);
+		}		
 	}
 	close(fd);
 	return (map_str);
