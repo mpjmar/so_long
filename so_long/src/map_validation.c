@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:42 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/31 18:50:38 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:07:33 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,24 @@
 int	map_validation(char *map_name)
 {
 	char	**matrix;
+	char	**matrix_dup;
+	t_point	size;
 
+	matrix = NULL;
 	map_ext(map_name);
-	matrix = fill_map(read_map_file(map_name));
+	if (!check_valid_chars(read_map_file(map_name)))
+		matrix = fill_map(read_map_file(map_name));
+	print_matrix(matrix);
+	if (!matrix || !matrix[0] || !matrix[0][0])
+		ft_error(3);
+	matrix_dup = dup_map(matrix);
 	is_rectangle(matrix);
 	check_borders(matrix);
-	check_valid_chars(matrix);
-	check_elements(matrix);
-	// check_path(matrix);
+	count_elements(matrix);
+	size = set_size(matrix);
+	check_path(matrix_dup, size);
+	free_matrix(matrix_dup);
+	free_matrix(matrix);
 	return (0);
 }
 
@@ -57,20 +67,26 @@ int	is_rectangle(char **matrix)
 	return (0);
 }
 
-/* void	flood_fill(char **matrix, t_point size, t_point cur, char to_fill)
+int	flood_fill(char **matrix_dup, t_point size, t_point pos)
 {
-	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
-		|| matrix[cur.y][cur.x] != to_fill)
-		ft_error(7);
-	matrix[cur.y][cur.x] = '#';
-	flood_fill(matrix, size, (t_point){cur.x - 1, cur.y}, to_fill);
-	flood_fill(matrix, size, (t_point){cur.x + 1, cur.y}, to_fill);
-	flood_fill(matrix, size, (t_point){cur.x, cur.y - 1}, to_fill);
-	flood_fill(matrix, size, (t_point){cur.x, cur.y + 1}, to_fill);
+	if (pos.y < 0 || pos.y >= size.y || pos.x < 0 || pos.x >= size.x)
+		return (1);
+	if (matrix_dup[pos.y][pos.x] == '1' || matrix_dup[pos.y][pos.x] == '#')
+		return (1);
+	matrix_dup[pos.y][pos.x] = '#';
+	flood_fill(matrix_dup, size, (t_point){pos.x - 1, pos.y});
+	flood_fill(matrix_dup, size, (t_point){pos.x + 1, pos.y});
+	flood_fill(matrix_dup, size, (t_point){pos.x, pos.y - 1});
+	flood_fill(matrix_dup, size, (t_point){pos.x, pos.y + 1});
+	return (0);
 }
 
-int	check_path(char **map)
+int	check_path(char **matrix_dup, t_point size)
 {
-	
+	t_point	pos;
+
+	pos = find_player(matrix_dup);
+	if (flood_fill(matrix_dup, size, pos))
+		ft_error(10);
 	return (0);
-} */
+}

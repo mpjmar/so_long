@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:50 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/31 18:49:51 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:25:31 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**dup_map(char **matrix)
 	i = 0;
 	while (matrix[i])
 		i++;
-	map_copy = (char **)malloc((i + 1) * sizeof(char *)); // LIBERAR DESPUES!!
+	map_copy = (char **)malloc((i + 1) * sizeof(char *));
 	if (!map_copy)
 		return (NULL);
 	i = 0;
@@ -38,25 +38,25 @@ char	**dup_map(char **matrix)
 	return (map_copy);
 }
 
-int	get_width(t_point *size, char **matrix)
+int	get_width(char **matrix)
 {
 	int	width;
 
-	width = 0;
-	while (matrix[0][width])
-		width++;
-	size->x = width;
+	if (!matrix || !matrix[0])
+		return (0);
+	width = ft_strlen(matrix[0]);
 	return (width);
 }
 
-int	get_height(t_point *size, char **matrix)
+int	get_height(char **matrix)
 {
 	int	height;
 
 	height = 0;
-	while (matrix[height][0])
+	if (!matrix)
+		return (0);
+	while (matrix && matrix[height])
 		height++;
-	size->y = height;
 	return (height);
 }
 

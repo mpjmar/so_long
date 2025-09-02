@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 19:17:59 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/31 18:05:05 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:02:46 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,17 @@ int	check_borders(char **matrix)
 {
 	int	i;
 	int	j;
-	
+	int	height;
+
 	i = 0;
 	j = 0;
+	height = get_height(matrix);
 	while (matrix[0][i])
 	{
-		if (matrix[0][i] == '1')
+		if (matrix[0][i] == '1' && matrix[height - 1][i] == '1')
 			i++;
 		else
-			ft_error(5);
+			ft_error(6);
 	}
 	while (matrix[j])
 	{
@@ -58,7 +60,7 @@ int	read_map(char **matrix, char c)
 	return (n);
 }
 
-int	check_elements(char **matrix)
+int	count_elements(char **matrix)
 {
 	int	e;
 	int	p;
@@ -76,25 +78,17 @@ int	check_elements(char **matrix)
 	return (0);
 }
 
-int	check_valid_chars(char **matrix)
+int	check_valid_chars(char *map_str)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (matrix[i])
+	while (*map_str)
 	{
-		j = 0;
-		while (matrix[i][j])
-		{
-			if (matrix[i][j] == '1' || matrix[i][j] == '0' || 
-				matrix[i][j] == 'E' || matrix[i][j] == 'P' || 
-				matrix[i][j] == 'C' )
-				j++;
-			else
-				ft_error(10);
-		}
-		i++;
+		if (*map_str == '1' || *map_str == '0' || 
+		*map_str == 'E' || *map_str == 'P' || 
+		*map_str == 'C' || *map_str == '\n' || 
+		*map_str == '\0')
+			map_str++;
+		else
+			ft_error(5);
 	}
 	return (0);
 }

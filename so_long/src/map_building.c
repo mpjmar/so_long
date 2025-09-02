@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 17:38:16 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/31 19:49:38 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/02 18:56:33 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@ char	*read_map_file(char *map_name)
 	int		fd;
 	char	*line;
 	char	*map_str;
+	char	*tmp;
 
-	map_str = "";
+	map_str = ft_strdup("");
 	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
 		ft_error(2);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
+		tmp = map_str;
 		map_str = ft_strjoin(map_str, line);
+		free(tmp);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -50,9 +53,11 @@ char	**fill_map(char *map_str)
 	return (map);
 }
 
-void	init_map(t_point size) // TERMINAR!!
+t_point	set_size(char **matrix)
 {
-	size.x = 0;
-	size.y = 0;
+	t_point size;
+	
+	size.x = get_width(matrix);
+	size.y = get_height(matrix);
+	return (size);
 }
-
