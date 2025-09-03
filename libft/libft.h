@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:07:52 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/08/31 18:57:42 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/03 16:12:27 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,5 @@ int		ft_putstr_pf(char *s);
 int		ft_putnbr_pf(int n, int base, char c);
 int		ft_putunbr_pf(unsigned long n, unsigned long base, char c);
 int		ft_putptr_pf(void	*p, int base, char c);
-
 
 #endif

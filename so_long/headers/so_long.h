@@ -6,22 +6,17 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/02 19:18:11 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/03 16:09:54 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
+# include "MLX42/MLX42.h"
 # include <fcntl.h>
 # include <errno.h>
-
-/* typedef struct s_map
-{
-	int	width;
-	int	height;
-}		t_map; */
 
 typedef struct s_point
 {
@@ -70,4 +65,4 @@ int		get_width(char **matrix);
 int		get_height(char **matrix);
 void	print_matrix(char **matrix);
 
-# endif
+#endif
