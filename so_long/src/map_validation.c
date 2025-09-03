@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:42 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/03 14:29:46 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/03 19:57:33 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 int	map_validation(char *map_name)
 {
+	char	*map_str;
 	char	**matrix;
 	char	**matrix_dup;
 	t_point	size;
 
+	map_str = read_map_file(map_name);
 	matrix = NULL;
 	map_ext(map_name);
-	check_valid_chars(read_map_file(map_name));
-	check_empty_line(read_map_file(map_name));
-	if (ft_strlen(read_map_file(map_name)) == 0)
+	check_valid_chars(map_str);
+	check_empty_line(map_str);
+	if (ft_strlen(map_str) == 0)
 		ft_error(5);
-	matrix = fill_map(read_map_file(map_name));
+	matrix = fill_map(map_str);
+	free(map_str);
 	matrix_dup = dup_map(matrix);
 	is_rectangle(matrix);
 	check_borders(matrix);
@@ -81,8 +84,8 @@ int	flood_fill(char **matrix_dup, t_point size, t_point pos)
 	flood_fill(matrix_dup, size, (t_point){pos.x + 1, pos.y});
 	flood_fill(matrix_dup, size, (t_point){pos.x, pos.y - 1});
 	flood_fill(matrix_dup, size, (t_point){pos.x, pos.y + 1});
-	if (read_map(matrix_dup, 'C') > 0)
-		ft_error(5);
+	if (read_map(matrix_dup, 'C') > 0 || read_map(matrix_dup, 'E') > 0)
+		return (1);
 	return (0);
 }
 
@@ -92,6 +95,6 @@ int	check_path(char **matrix_dup, t_point size)
 
 	pos = find_player(matrix_dup);
 	if (flood_fill(matrix_dup, size, pos))
-		ft_error(10);
+		ft_error(5);
 	return (0);
 }

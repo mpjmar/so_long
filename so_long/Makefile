@@ -6,7 +6,7 @@
 #    By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/26 16:59:57 by maria-j2          #+#    #+#              #
-#    Updated: 2025/08/31 18:49:09 by maria-j2         ###   ########.fr        #
+#    Updated: 2025/09/03 19:43:50 by maria-j2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 
 # Compiler and compilation flags
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -I$(LIBFT_DIR)
+CFLAGS = -Wall -Werror -Wextra -g -I$(LIBFT_DIR) -I$(MLX42_DIR)
 
 # Tools
 AR = ar rcs
@@ -28,6 +28,10 @@ OBJ_DIR = obj
 # Libft
 LIBFT_DIR = ../libft
 LIBFT = $(LIBFT_DIR)/libft.a
+
+# MLX42
+MLX42_DIR = ../MLX42
+MLX42 = $(MLX42_DIR)/libmlx42.a
 
 # Source files
 SRC_FILES = \
@@ -52,7 +56,7 @@ all: $(LIBFT) $(NAME)
 
 # Build so_long
 $(NAME): $(OBJ_DIR) $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(MLX42) -ldl -lglfw -pthread
 
 # Build libft
 $(LIBFT):

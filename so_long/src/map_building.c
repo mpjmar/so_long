@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 17:38:16 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/03 15:59:06 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:18:52 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ char	**fill_map(char *map_str)
 		free_matrix(map);
 		ft_error(3);
 	}
-	free(map_str);
 	return (map);
 }
 

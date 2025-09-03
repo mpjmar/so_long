@@ -6,17 +6,19 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/03 16:09:54 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:59:35 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "libft/libft.h"
-# include "MLX42/MLX42.h"
+# include "../libft/libft.h"
+# include "../MLX42/MLX42.h"
 # include <fcntl.h>
 # include <errno.h>
+
+# define TILE_SIZE 64
 
 typedef struct s_point
 {
