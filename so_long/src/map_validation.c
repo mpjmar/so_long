@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:42 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/02 19:45:34 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/03 14:29:46 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	map_validation(char *map_name)
 	if (ft_strlen(read_map_file(map_name)) == 0)
 		ft_error(5);
 	matrix = fill_map(read_map_file(map_name));
-	print_matrix(matrix);
 	matrix_dup = dup_map(matrix);
 	is_rectangle(matrix);
 	check_borders(matrix);
@@ -70,6 +69,9 @@ int	is_rectangle(char **matrix)
 
 int	flood_fill(char **matrix_dup, t_point size, t_point pos)
 {
+	int	c_res;
+
+	c_res = 0;
 	if (pos.y < 0 || pos.y >= size.y || pos.x < 0 || pos.x >= size.x)
 		return (1);
 	if (matrix_dup[pos.y][pos.x] == '1' || matrix_dup[pos.y][pos.x] == '#')
@@ -79,6 +81,8 @@ int	flood_fill(char **matrix_dup, t_point size, t_point pos)
 	flood_fill(matrix_dup, size, (t_point){pos.x + 1, pos.y});
 	flood_fill(matrix_dup, size, (t_point){pos.x, pos.y - 1});
 	flood_fill(matrix_dup, size, (t_point){pos.x, pos.y + 1});
+	if (read_map(matrix_dup, 'C') > 0)
+		ft_error(5);
 	return (0);
 }
 
