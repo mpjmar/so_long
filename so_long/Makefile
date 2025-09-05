@@ -6,7 +6,7 @@
 #    By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/26 16:59:57 by maria-j2          #+#    #+#              #
-#    Updated: 2025/09/03 19:43:50 by maria-j2         ###   ########.fr        #
+#    Updated: 2025/09/05 19:31:58 by maria-j2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ MLX42 = $(MLX42_DIR)/libmlx42.a
 # Source files
 SRC_FILES = \
 	events.c \
-	free.c \
+	free_and_errors.c \
 	game.c \
 	main.c \
 	map_building.c \

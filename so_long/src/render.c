@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:07:24 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/05 18:45:23 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/05 19:37:12 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_render(t_vars *vars)
 		}
 		y++;
 	}
-	vars->player.instance = mlx_image_to_window(vars->mlx, vars->player.img, vars->player.pos.x * TILE_SIZE, vars->player.pos.y * TILE_SIZE);
+	mlx_image_to_window(vars->mlx, vars->player.img, vars->player.pos.x * TILE_SIZE, vars->player.pos.y * TILE_SIZE);
 }
 
 void	render_map(t_vars *vars)

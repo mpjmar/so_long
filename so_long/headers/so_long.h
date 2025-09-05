@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/05 19:07:30 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/05 19:36:45 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_player
 	int			moves;
 	int			collected;
 	mlx_image_t	*img;		// sprite
-	mlx_image_t	*instance;	// instancia de la imagen en la ventana
 }				t_player;
 
 typedef struct s_vars // estado global del juego

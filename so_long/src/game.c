@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:47 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/05 19:06:50 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/05 19:34:10 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ int	items_count(char **matrix)
 	int	count;
 
 	y = 0;
+	count = 0;
 	while (matrix[y])
 	{
 		x = 0;
 		while (matrix[y][x])
 		{
-			if (matrix[y][x] == 'C');
+			if (matrix[y][x] == 'C')
 				count++;
 			x++;
 		}
@@ -117,6 +118,5 @@ void	loop_handler(void *param)
 	t_vars	*vars;
 
 	vars = (t_vars *)param;
-	
 	render_map(vars);
 }
