@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/03 17:59:35 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/05 19:07:30 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,59 @@
 # include <errno.h>
 
 # define TILE_SIZE 64
+# define KEY_ARROW_RIGHT MLX_KEY_RIGHT
+# define KEY_ARROW_LEFT MLX_KEY_LEFT
+# define KEY_ARROW_UP MLX_KEY_UP
+# define KEY_ARROW_DOWN MLX_KEY_DOWN
+# define KEY_D MLX_KEY_D
+# define KEY_A MLX_KEY_A
+# define KEY_W MLX_KEY_W
+# define KEY_S MLX_KEY_S
 
 typedef struct s_point
 {
 	int	x;
 	int	y;
-}		t_point;
+}			t_point;
+
+typedef struct s_player
+{
+	t_point		pos;
+	int			moves;
+	int			collected;
+	mlx_image_t	*img;		// sprite
+	mlx_image_t	*instance;	// instancia de la imagen en la ventana
+}				t_player;
+
+typedef struct s_vars // estado global del juego
+{
+	mlx_t		*mlx;
+	char		**map;
+	int			items;
+	t_player	player;
+	mlx_image_t	*wall_img;
+	mlx_image_t	*floor_img;
+	mlx_image_t	*collect_img;
+	mlx_image_t	*exit_img;
+}				t_vars;
 
 // events
+int		key_handler(int keycode, t_vars *vars);
+void	close_handler(void *param);
 
-
-// free
+// free and errors
 void	free_matrix(char **matrix);
+void	ft_error(int error);
 
 // game
 t_point	find_player(char **matrix);
+int		items_count(char **matrix);
+mlx_t	*init_game(char **map);
+void	init_vars(t_vars *vars, mlx_t *mlx, char **map);
+void	loop_handler(void *param);
 
 // main
 int		main(int argc, char **argv);
-void	ft_error(int error);
 
 // map_building
 char	*read_map_file(char *map_name);
@@ -59,7 +93,8 @@ int		flood_fill(char **matrix_dup, t_point size, t_point pos);
 int		check_path(char **map, t_point size);
 
 // render
-
+void	init_render(t_vars *vars);
+void	render_map(t_vars *vars);
 
 // utils
 char	**dup_map(char **matrix);
