@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:47 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/05 19:34:10 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:29:08 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,26 @@ t_point	find_player(char **matrix)
 		while (matrix[pos.y][pos.x])
 		{
 			if (matrix[pos.y][pos.x] == 'P')
+				return (pos);
+			else
+				pos.x++;
+		}
+		pos.y++;
+	}
+	return ((t_point){-1, -1});
+}
+
+t_point	find_exit(char **matrix)
+{
+	t_point	pos;
+
+	pos.y = 0;
+	while (matrix[pos.y])
+	{
+		pos.x = 0;
+		while (matrix[pos.y][pos.x])
+		{
+			if (matrix[pos.y][pos.x] == 'E')
 				return (pos);
 			else
 				pos.x++;
@@ -73,6 +93,8 @@ void	init_vars(t_vars *vars, mlx_t *mlx, char **map)
 	vars->mlx = mlx;
 	vars->map = map;
 	vars->items = items_count(map);
+	vars->moves = 0;
+	vars->exit = find_exit(map);
 	vars->player.pos = find_player(map);
 	vars->player.moves = 0;
 	vars->player.collected = 0;

@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:07:52 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/03 16:12:27 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:41:56 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		ft_atoi_base(const char *str, int str_base);
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);

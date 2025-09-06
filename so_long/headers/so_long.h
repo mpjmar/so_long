@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/05 19:36:45 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:27:30 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,6 @@
 # include <errno.h>
 
 # define TILE_SIZE 64
-# define KEY_ARROW_RIGHT MLX_KEY_RIGHT
-# define KEY_ARROW_LEFT MLX_KEY_LEFT
-# define KEY_ARROW_UP MLX_KEY_UP
-# define KEY_ARROW_DOWN MLX_KEY_DOWN
-# define KEY_D MLX_KEY_D
-# define KEY_A MLX_KEY_A
-# define KEY_W MLX_KEY_W
-# define KEY_S MLX_KEY_S
 
 typedef struct s_point
 {
@@ -39,14 +31,16 @@ typedef struct s_player
 	t_point		pos;
 	int			moves;
 	int			collected;
-	mlx_image_t	*img;		// sprite
+	mlx_image_t	*img;
 }				t_player;
 
-typedef struct s_vars // estado global del juego
+typedef struct s_vars
 {
 	mlx_t		*mlx;
 	char		**map;
 	int			items;
+	int			moves;
+	t_point		exit;
 	t_player	player;
 	mlx_image_t	*wall_img;
 	mlx_image_t	*floor_img;
@@ -55,7 +49,7 @@ typedef struct s_vars // estado global del juego
 }				t_vars;
 
 // events
-int		key_handler(int keycode, t_vars *vars);
+void	key_handler(mlx_key_data_t keydata, void *param);
 void	close_handler(void *param);
 
 // free and errors

@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 19:00:37 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/02 18:52:39 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:47:21 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	fill_words(char **array, char *str)
 	while (*str != '\0')
 	{
 		array[word_index] = word_dup(str);
+		if (!array)
+			return ;
 		word_index++;
 		while (*str != '\0' && *str != ' ' && *str != '\t' && *str != '\n')
 			str++;
@@ -85,7 +87,7 @@ char	**ft_split(char *str)
 
 	num_words = count_words(str);
 	array = malloc(sizeof(char *) * (num_words + 1));
-	if (!array)
+	if (!array || !str)
 		return (NULL);
 	array[num_words] = 0;
 	fill_words(array, str);
