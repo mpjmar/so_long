@@ -6,13 +6,13 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:07:24 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/06 16:56:37 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:49:43 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void	init_render(t_vars *vars)
+void	init_map(t_vars *vars)
 {
 	int	y;
 	int	x;
@@ -39,5 +39,10 @@ void	init_render(t_vars *vars)
 
 void	render_map(t_vars *vars)
 {
-	(void) vars;
+	mlx_delete_image(vars->mlx, vars->player.img);
+    mlx_delete_image(vars->mlx, vars->wall_img);
+    mlx_delete_image(vars->mlx, vars->floor_img);
+    mlx_delete_image(vars->mlx, vars->collect_img);
+    mlx_delete_image(vars->mlx, vars->exit_img);
+	init_map(vars);
 }

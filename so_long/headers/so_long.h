@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/06 20:27:30 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:49:01 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 # include <errno.h>
 
-# define TILE_SIZE 64
+# define TILE_SIZE 128
 
 typedef struct s_point
 {
@@ -29,8 +29,9 @@ typedef struct s_point
 typedef struct s_player
 {
 	t_point		pos;
+	t_point		next_pos;
 	int			moves;
-	int			collected;
+	// int			collected;
 	mlx_image_t	*img;
 }				t_player;
 
@@ -50,6 +51,8 @@ typedef struct s_vars
 
 // events
 void	key_handler(mlx_key_data_t keydata, void *param);
+void 	update_player_pos(t_vars *vars, char mov);
+void	modify_map(t_vars *vars);
 void	close_handler(void *param);
 
 // free and errors
@@ -86,7 +89,7 @@ int		flood_fill(char **matrix_dup, t_point size, t_point pos);
 int		check_path(char **map, t_point size);
 
 // render
-void	init_render(t_vars *vars);
+void	init_map(t_vars *vars);
 void	render_map(t_vars *vars);
 
 // utils

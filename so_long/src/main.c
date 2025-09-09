@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:45:18 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/06 16:16:47 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:49:54 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	if (!mlx)
 		return (1);
 	init_vars(&vars, mlx, map);
-	init_render(&vars);
+	init_map(&vars);
 	mlx_loop_hook(vars.mlx, loop_handler, &vars);
 	mlx_key_hook(vars.mlx, key_handler, &vars);
 	mlx_close_hook(vars.mlx, close_handler, &vars);

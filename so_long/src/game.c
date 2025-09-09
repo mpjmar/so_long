@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:47 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/06 20:29:08 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:20:50 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,38 +97,38 @@ void	init_vars(t_vars *vars, mlx_t *mlx, char **map)
 	vars->exit = find_exit(map);
 	vars->player.pos = find_player(map);
 	vars->player.moves = 0;
-	vars->player.collected = 0;
-	/* vars->player.img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/player_img.png"));
-	vars->wall_img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/wall_img.png"));
-	vars->floor_img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/floor_img.png"));
-	vars->collect_img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/collect_img.png"));
-	vars->exit_img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/exit_img.png")); */
+	// vars->player.collected = 0;
+	/* vars->player.img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/player_1.png"));
+	vars->wall_img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/wall.png"));
+	vars->floor_img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/floor.png"));
+	vars->collect_img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/collect_1.png"));
+	vars->exit_img = mlx_texture_to_image(mlx, mlx_load_png("resources/sprites/exit_1.png")); */
 	
-	texture = mlx_load_png("resources/sprites/player_img.png");
+	texture = mlx_load_png("resources/sprites/player_1.png");
 	if (!texture)
-		ft_printf("Fail to load player_img.png");
+		ft_printf("Fail to load player.png");
 	vars->player.img = mlx_texture_to_image(mlx, texture);
 	mlx_delete_texture(texture);
 	
-	texture = mlx_load_png("resources/sprites/wall_img.png");
+	texture = mlx_load_png("resources/sprites/wall.png");
 	if (!texture)
-		ft_printf("Fail to load wall_img.png");
+		ft_printf("Fail to load wall.png");
 	vars->wall_img = mlx_texture_to_image(mlx, texture);
 	mlx_delete_texture(texture);
 
-	texture = mlx_load_png("resources/sprites/floor_img.png");
+	texture = mlx_load_png("resources/sprites/floor.png");
 	if (!texture)
-		ft_printf("Fail to load wall_img.png");
+		ft_printf("Fail to load floor.png");
 	vars->floor_img = mlx_texture_to_image(mlx, texture);
 	mlx_delete_texture(texture);
 
-	texture = mlx_load_png("resources/sprites/collect_img.png");
+	texture = mlx_load_png("resources/sprites/collect_1.png");
 	if (!texture)
-		ft_printf("Fail to load collect_img.png");
+		ft_printf("Fail to load collect.png");
 	vars->collect_img = mlx_texture_to_image(mlx, texture);
 	mlx_delete_texture(texture);
 
-	texture = mlx_load_png("resources/sprites/exit_img.png");
+	texture = mlx_load_png("resources/sprites/exit.png");
 	if (!texture)
 		ft_printf("Fail to load exit_img.png");
 	vars->exit_img = mlx_texture_to_image(mlx, texture);
@@ -140,5 +140,5 @@ void	loop_handler(void *param)
 	t_vars	*vars;
 
 	vars = (t_vars *)param;
-	render_map(vars);
+	//render_map(vars);
 }
