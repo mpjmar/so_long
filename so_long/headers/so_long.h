@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/09 19:49:01 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/11 19:51:19 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct s_player
 	t_point		pos;
 	t_point		next_pos;
 	int			moves;
-	// int			collected;
 	mlx_image_t	*img;
 }				t_player;
 
@@ -52,7 +51,7 @@ typedef struct s_vars
 // events
 void	key_handler(mlx_key_data_t keydata, void *param);
 void 	update_player_pos(t_vars *vars, char mov);
-void	modify_map(t_vars *vars);
+void	move_player(t_vars *vars, char mov);
 void	close_handler(void *param);
 
 // free and errors
@@ -61,7 +60,7 @@ void	ft_error(int error);
 
 // game
 t_point	find_player(char **matrix);
-int		items_count(char **matrix);
+int		items_count(t_vars *vars);
 mlx_t	*init_game(char **map);
 void	init_vars(t_vars *vars, mlx_t *mlx, char **map);
 void	loop_handler(void *param);

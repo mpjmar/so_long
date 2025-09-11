@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:07:24 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/09 19:49:43 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/11 19:49:46 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,16 @@ void	init_map(t_vars *vars)
 
 void	render_map(t_vars *vars)
 {
-	mlx_delete_image(vars->mlx, vars->player.img);
-    mlx_delete_image(vars->mlx, vars->wall_img);
-    mlx_delete_image(vars->mlx, vars->floor_img);
-    mlx_delete_image(vars->mlx, vars->collect_img);
-    mlx_delete_image(vars->mlx, vars->exit_img);
-	init_map(vars);
+	uint32_t	i;
+
+	i = 0;
+	vars->player.img->instances[0].x = vars->player.pos.x * TILE_SIZE;
+	vars->player.img->instances[0].y = vars->player.pos.y * TILE_SIZE;
+	while (i < vars->collect_img->count)
+	{
+		if ((vars->collect_img->instances[i].x == vars->player.pos.x * TILE_SIZE) &&
+			(vars->collect_img->instances[i].y == vars->player.pos.y * TILE_SIZE))
+			vars->collect_img->instances[i].enabled = false;
+		i++;
+	}
 }
