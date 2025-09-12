@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:08:54 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 16:59:44 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/12 19:47:22 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,15 @@ void update_player_pos(t_vars *vars, char mov)
 {
 	vars->player.next_pos = vars->player.pos;
 	if (mov == 'R')
+	{
+		vars->player.player_dir = 0;
 		vars->player.next_pos.x++;
+	}
 	else if (mov == 'L')
+	{
+		vars->player.player_dir = 1;
 		vars->player.next_pos.x--;
+	}
 	else if (mov == 'U')
 		vars->player.next_pos.y--;
 	else if (mov == 'D')
@@ -49,17 +55,27 @@ void update_player_pos(t_vars *vars, char mov)
 
 void	move_player(t_vars *vars, char mov)
 {
-	update_player_pos(vars, mov);
 	int	new_y;
 	int	new_x;
-
+	
+	update_player_pos(vars, mov);
 	new_y = vars->player.next_pos.y;
 	new_x = vars->player.next_pos.x;
 	if (vars->map[new_y][new_x] == '1')
 		return ;
-	if (vars->map[new_y][new_x] == 'C')
-		vars->items -= 1;
+	if (vars->player.anim_state == 2 && vars->map[new_y][new_x] != 'C')
+	{
+		vars->player.anim_state = 0;
+		vars->player.anim_timer = 0;
+	}
 	vars->player.pos = vars->player.next_pos;
+	if (vars->map[new_y][new_x] == 'C')
+	{
+		vars->items -= 1;
+		vars->map[new_y][new_x] = '0';
+		vars->player.anim_state = 1;
+		vars->player.anim_timer = 0;
+	}
 	vars->moves += 1;
 	ft_printf("Number of moves: %d\n", vars->moves);
 	if (vars->map[new_y][new_x] == 'E' && vars->items == 0)

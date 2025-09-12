@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 19:45:17 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/12 18:07:24 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ typedef struct s_player
 	t_point		pos;
 	t_point		next_pos;
 	int			moves;
-	mlx_image_t	*img;
+	mlx_image_t	*imgs[6];
+	int			player_dir;
+	int			anim_state;
+	int			anim_timer;
 }				t_player;
 
 typedef struct s_vars
