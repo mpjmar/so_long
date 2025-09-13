@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:08:54 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 16:59:44 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:48:28 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,12 @@ void	move_player(t_vars *vars, char mov)
 	new_x = vars->player.next_pos.x;
 	if (vars->map[new_y][new_x] == '1')
 		return ;
-	if (vars->map[new_y][new_x] == 'C')
-		vars->items -= 1;
 	vars->player.pos = vars->player.next_pos;
+	if (vars->map[new_y][new_x] == 'C')
+	{
+		vars->items -= 1;
+		vars->map[new_y][new_x] = '0';
+	}
 	vars->moves += 1;
 	ft_printf("Number of moves: %d\n", vars->moves);
 	if (vars->map[new_y][new_x] == 'E' && vars->items == 0)

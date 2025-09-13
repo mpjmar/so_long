@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 17:38:16 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/10 19:34:11 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:07:20 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	**fill_map(char *map_str)
 	return (map);
 }
 
-t_point	set_size(char **matrix)
+t_point	get_size(char **matrix)
 {
 	t_point	size;
 

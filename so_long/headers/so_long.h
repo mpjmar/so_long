@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 19:51:19 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:40:42 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		main(int argc, char **argv);
 // map_building
 char	*read_map_file(char *map_name);
 char	**fill_map(char *map_str);
-t_point	set_size(char **matrix);
+t_point	get_size(char **matrix);
 
 // map_checking
 int		check_borders(char **matrix);
