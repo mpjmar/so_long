@@ -6,11 +6,11 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:07:24 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/12 19:30:32 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:04:43 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../headers/so_long_bonus.h"
 
 void	init_map(t_vars *vars)
 {

@@ -6,11 +6,11 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:47 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/12 19:34:51 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:03:54 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../headers/so_long_bonus.h"
 
 t_point	find_player(char **matrix)
 {

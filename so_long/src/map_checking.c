@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 19:17:59 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/03 16:43:14 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 17:35:57 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ int	check_empty_line(char *map_str)
 	int	i;
 
 	i = 0;
+	if (!map_str[i])
+		ft_error(10);
 	while (map_str[i] && map_str[i + 1])
 	{
 		if (map_str[i] == '\n' && map_str[i + 1] == '\n')

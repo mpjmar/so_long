@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:08:47 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 18:00:08 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 17:36:28 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ void	ft_error(int error)
 		ft_printf("Error: invalid number of players\n");
 	else if (error == 9)
 		ft_printf("Error: invalid number of collectibles\n");
+	else if (error == 10)
+		ft_printf("Error: empty map\n");
 	exit(EXIT_FAILURE);
 }

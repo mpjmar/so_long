@@ -6,11 +6,11 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:45:18 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 18:10:02 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:04:12 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../headers/so_long_bonus.h"
 
 int	main(int argc, char **argv)
 {
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	map = NULL;
 	if (argc != 2)
-	ft_error(0);
+		ft_error(0);
 	if (!map_validation(argv[1]))
 	{
 		map_str = read_map_file(argv[1]);

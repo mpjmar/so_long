@@ -6,12 +6,12 @@
 #    By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/26 16:59:57 by maria-j2          #+#    #+#              #
-#    Updated: 2025/09/05 19:31:58 by maria-j2         ###   ########.fr        #
+#    Updated: 2025/09/13 15:05:04 by maria-j2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of the file
-NAME = so_long
+NAME = so_long_bonus
 
 # Compiler and compilation flags
 CC = cc

@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:45:18 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 18:10:02 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 16:51:39 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ int	main(int argc, char **argv)
 	char	*map_str;
 	char	**map;
 	mlx_t	*mlx;
-	t_vars	vars;
 
 	map = NULL;
 	if (argc != 2)
-	ft_error(0);
+		ft_error(0);
 	if (!map_validation(argv[1]))
 	{
 		map_str = read_map_file(argv[1]);
@@ -33,6 +32,14 @@ int	main(int argc, char **argv)
 	mlx = init_game(map);
 	if (!mlx)
 		return (1);
+	play_game(mlx, map);
+	return (0);
+}
+
+void	play_game(mlx_t *mlx, char **map)
+{
+	t_vars	vars;
+
 	init_vars(&vars, mlx, map);
 	init_map(&vars);
 	mlx_loop_hook(vars.mlx, loop_handler, &vars);
@@ -41,5 +48,4 @@ int	main(int argc, char **argv)
 	mlx_loop(vars.mlx);
 	free_matrix(map);
 	mlx_terminate(vars.mlx);
-	return (0);
 }

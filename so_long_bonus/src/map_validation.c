@@ -6,11 +6,11 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:42 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 18:00:41 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:06:39 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../headers/so_long_bonus.h"
 
 int	map_validation(char *map_name)
 {
@@ -35,7 +35,7 @@ int	map_validation(char *map_name)
 	is_rectangle(matrix);
 	check_borders(matrix);
 	count_elements(matrix);
-	size = set_size(matrix);
+	size = get_size(matrix);
 	check_path(matrix_dup, size);
 	free_matrix(matrix_dup);
 	free_matrix(matrix);

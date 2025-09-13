@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:48:29 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/13 15:40:42 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 17:05:11 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 # include <errno.h>
 
-# define TILE_SIZE 128
+# define SIZE 128
 
 typedef struct s_point
 {
@@ -50,7 +50,7 @@ typedef struct s_vars
 
 // events
 void	key_handler(mlx_key_data_t keydata, void *param);
-void 	update_player_pos(t_vars *vars, char mov);
+void	update_player_pos(t_vars *vars, char mov);
 void	move_player(t_vars *vars, char mov);
 void	close_handler(void *param);
 
@@ -60,13 +60,14 @@ void	ft_error(int error);
 
 // game
 t_point	find_player(char **matrix);
+t_point	find_exit(char **matrix);
 int		items_count(t_vars *vars);
 mlx_t	*init_game(char **map);
 void	init_vars(t_vars *vars, mlx_t *mlx, char **map);
-void	loop_handler(void *param);
 
 // main
 int		main(int argc, char **argv);
+void	play_game(mlx_t *mlx, char **map);
 
 // map_building
 char	*read_map_file(char *map_name);
@@ -89,6 +90,7 @@ int		check_path(char **map, t_point size);
 
 // render
 void	init_map(t_vars *vars);
+void	loop_handler(void *param);
 void	render_map(t_vars *vars);
 
 // utils

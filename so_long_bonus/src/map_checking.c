@@ -6,11 +6,11 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 19:17:59 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/03 16:43:14 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:04:27 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../headers/so_long_bonus.h"
 
 int	check_borders(char **matrix)
 {

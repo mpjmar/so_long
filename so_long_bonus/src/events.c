@@ -6,11 +6,11 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:08:54 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/12 19:47:22 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:03:28 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../headers/so_long_bonus.h"
 
 void	key_handler(mlx_key_data_t keydata, void *param)
 {

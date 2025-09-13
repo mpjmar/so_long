@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:06:47 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/11 20:01:31 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 17:05:11 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ mlx_t	*init_game(char **map)
 	int		height;
 	mlx_t	*mlx;
 
-	width = get_width(map) * TILE_SIZE;
-	height = get_height(map) * TILE_SIZE;
+	width = get_width(map) * SIZE;
+	height = get_height(map) * SIZE;
 	mlx = mlx_init(width, height, "so_long", true);
 	return (mlx);
 }
@@ -115,11 +115,4 @@ void	init_vars(t_vars *vars, mlx_t *mlx, char **map)
 	tex = mlx_load_png("resources/sprites/exit.png");
 	vars->exit_img = mlx_texture_to_image(mlx, tex);
 	mlx_delete_texture(tex);
-}
-
-void	loop_handler(void *param)
-{
-	t_vars	*vars;
-
-	vars = (t_vars *)param;
 }

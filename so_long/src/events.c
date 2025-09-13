@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:08:54 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/09/12 17:48:28 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/09/13 16:50:28 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	key_handler(mlx_key_data_t keydata, void *param)
 {
-	t_vars *vars;
+	t_vars	*vars;
 
 	vars = (t_vars *)param;
 	if (keydata.action == MLX_RELEASE)
@@ -34,7 +34,7 @@ void	key_handler(mlx_key_data_t keydata, void *param)
 	}
 }
 
-void update_player_pos(t_vars *vars, char mov)
+void	update_player_pos(t_vars *vars, char mov)
 {
 	vars->player.next_pos = vars->player.pos;
 	if (mov == 'R')
@@ -49,10 +49,10 @@ void update_player_pos(t_vars *vars, char mov)
 
 void	move_player(t_vars *vars, char mov)
 {
-	update_player_pos(vars, mov);
 	int	new_y;
 	int	new_x;
 
+	update_player_pos(vars, mov);
 	new_y = vars->player.next_pos.y;
 	new_x = vars->player.next_pos.x;
 	if (vars->map[new_y][new_x] == '1')
